@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 6205959875215665146}
   - component: {fileID: 517071166}
   - component: {fileID: 1835093542263263220}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cenario
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -7,7 +7,7 @@ public class MoveCenario : MonoBehaviour
     private gameController _gameController;
     private Rigidbody2D cenarioRb;
 
-    private bool instanciado;
+    private bool cenarioInstanciado;
 
     // Start is called before the first frame update
     void Start()
@@ -20,15 +20,13 @@ public class MoveCenario : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(instanciado == false)
+        if (cenarioInstanciado == false)
         {
-            if(transform.position.x <= 0)
+            if (transform.position.x <= 0)
             {
-                instanciado = true;
+                cenarioInstanciado = true;
                 GameObject temp = Instantiate(_gameController.cenarioPrefab);
-                float posX = transform.position.x + _gameController.larguraCenario;
-                float posY = transform.position.y;
-                temp.transform.position = new Vector3(posX, posY,0);
+                temp.transform.position = new Vector3(transform.position.x + _gameController.larguraCenario, transform.position.y, 0); //soma a largura com a posição atual para compensar e não ficar brechas.
             }
         }
 
@@ -36,5 +34,6 @@ public class MoveCenario : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+     
     }
 }

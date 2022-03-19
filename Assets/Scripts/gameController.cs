@@ -9,10 +9,12 @@ public class gameController : MonoBehaviour
     public float limiteMaxX;
     public float posicaoDestruir;
     public float larguraCenario;
-    public GameObject cenarioPrefab;    
+    public GameObject cenarioPrefab;
 
     [Header("Configurações do Personagem")]
     public float velocidadeMovimento;
+    public int qtdMaxTiros;
+    public int qtdTirosAtual;
 
     [Header("Configurações dos Inimigos")]
     public float velocidadeObjeto;
@@ -25,6 +27,7 @@ public class gameController : MonoBehaviour
     void Start()
     {
         _playerController = FindObjectOfType(typeof(playerController)) as playerController; //procura o script playerController
+        qtdTirosAtual = qtdMaxTiros;
     }
 
     // Update is called once per frame

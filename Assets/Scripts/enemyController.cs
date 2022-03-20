@@ -10,7 +10,10 @@ public class enemyController : MonoBehaviour
     public float velocidadeMax;
     public float velocidadeAtual;
     public int recompensa;
-   
+    public float positionX;
+    bool isDamage;
+
+
     public Color[] enemyColor;
     public bool isHit;
     public float tempoInvencível;
@@ -25,12 +28,26 @@ public class enemyController : MonoBehaviour
     {
         vidaAtual = vidaMax;
         velocidadeAtual = velocidadeMax;
+        _gameController = FindObjectOfType(typeof(gameController)) as gameController;
     }
 
     // Update is called once per frame
     void Update()
     {
         enemyRb.velocity = new Vector2(velocidadeAtual * -1, enemyRb.velocity.y);
+        positionX = transform.position.x;
+
+        if (positionX < _gameController.limiteMinX)
+        {
+            
+            if (isDamage == false)
+            {
+                isDamage = true;
+                _gameController.vidaAtual -= 1;
+                print(_gameController.vidaAtual);
+            }
+
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -52,6 +69,7 @@ public class enemyController : MonoBehaviour
         if (vidaAtual <= 0)
         {
             _gameController.Pontuacao += recompensa;
+            _gameController.qtdInimigosTela -= 1;
             Destroy(this.gameObject);
         }
 
@@ -68,4 +86,6 @@ public class enemyController : MonoBehaviour
         enemySpriteRender.color = enemyColor[0];        
 
     }
+
+
 }

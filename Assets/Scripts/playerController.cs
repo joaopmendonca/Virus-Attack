@@ -14,17 +14,15 @@ public class playerController : MonoBehaviour
     public LayerMask whatIsGround;
     public float jumpForce;
 
-    //variaveis de acesso
-    private Rigidbody2D playerRb;
-    private gameController _gameController;
-    private Animator playerAnimator;
+    [Header("Variaveis de acesso")]
+    public Rigidbody2D playerRb;
+    public gameController _gameController;
+    public Animator playerAnimator;
 
     // Start is called before the first frame update
     void Start()
-    {              
-        playerRb = GetComponent<Rigidbody2D>(); //acesso ao componente rigidbody2D
-        playerAnimator = GetComponent<Animator>();
-        _gameController = FindObjectOfType(typeof(gameController)) as gameController; //procura o script playerController
+    {            
+               
     }
 
     // Update is called once per frame
@@ -84,7 +82,7 @@ public class playerController : MonoBehaviour
                 break;
 
             case 1:
-                //_AudioController.playSFX(_AudioController.sfxPlayerAtack, 1f);                
+                //_AudioController.playSFX(_AudioController.sfxShoot, 1f);                
                 GameObject temp = Instantiate(tiroPrefab);
                 temp.transform.position = armaPosition.transform.position;                
                 isShooting = true;

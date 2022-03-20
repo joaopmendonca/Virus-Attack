@@ -36,4 +36,13 @@ public class shoot : MonoBehaviour
         _gameController.qtdTirosAtual += 1;
         Destroy(this.gameObject);
     }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("Enemy"))
+        {
+            _gameController.qtdTirosAtual += 1;
+            Destroy(this.gameObject);
+        }
+    }
 }

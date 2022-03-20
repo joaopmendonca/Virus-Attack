@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class MoveCenario : MonoBehaviour
 {
-    private gameController _gameController;
-    private Rigidbody2D cenarioRb;
+    [Header("Variaveis de acesso")]
+    public gameController _gameController;
+    public Rigidbody2D cenarioRb;
 
+    //outras variaveis
     private bool cenarioInstanciado;
 
     // Start is called before the first frame update
     void Start()
     {
         _gameController = FindObjectOfType(typeof(gameController)) as gameController;
-        cenarioRb = GetComponent<Rigidbody2D>();
         cenarioRb.velocity = new Vector2(_gameController.velocidadeObjeto, 0);
     }
 

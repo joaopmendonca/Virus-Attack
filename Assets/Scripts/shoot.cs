@@ -7,6 +7,7 @@ public class shoot : MonoBehaviour
     //variaveis de acesso
     private Rigidbody2D tiroRb;
     private gameController _gameController;
+    private enemyController _enemyController;
 
     [Header("Configurações do Tiro")]
     public float velocidadeTiro;
@@ -19,6 +20,7 @@ public class shoot : MonoBehaviour
     {
         tiroRb = GetComponent<Rigidbody2D>();
         _gameController = FindObjectOfType(typeof(gameController)) as gameController;
+        _enemyController = FindObjectOfType(typeof(enemyController)) as enemyController;
 
         _gameController.qtdTirosAtual -= 1;
         StartCoroutine("destroyTiro");

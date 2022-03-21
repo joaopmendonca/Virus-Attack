@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
+//using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class gameController : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class gameController : MonoBehaviour
     public int Pontuacao;
     public int vidaMax;
     public int vidaAtual;
-    bool startOrda = false;
+    bool startOrda;
+    public bool isGameOver;
 
 
     [Header("Configurações do Cenário")]
@@ -40,6 +42,7 @@ public class gameController : MonoBehaviour
     [Header("Variaveis de acesso")]
     public playerController _playerController;
     public enemyController _enemyController;
+    public GameObject telaGameOver;
  
 
 
@@ -64,6 +67,30 @@ public class gameController : MonoBehaviour
             StartCoroutine("spawnEnemy");
         }
 
+        if (vidaAtual <= 0)
+        {
+            isGameOver = true;
+        }
+
+
+        if (isGameOver == true)
+        {
+            telaGameOver.SetActive(true);
+
+            Time.timeScale = 0;
+
+            if (Input.GetButtonDown("Submit"))
+            {
+                RestartScene();
+            }
+        }
+
+        else if (isGameOver == false)
+        {
+            Time.timeScale = 1;
+        }
+
+
     }
     
     IEnumerator spawnEnemy()
@@ -83,19 +110,17 @@ public class gameController : MonoBehaviour
             
             if( qtdInimigosTela == 3)
             {
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(1f);
             }
 
             if (positionSpanw == 1)
-            {
-                //yield return new WaitForSeconds(1);
+            {                
                 GameObject temp = Instantiate(inimigoPrefab[enemyType]);
                 temp.transform.position = spawnPosA.transform.position;
             }
 
             if (positionSpanw == 2)
-            {
-                //yield return new WaitForSeconds(1);
+            {                
                 GameObject temp = Instantiate(inimigoPrefab[enemyType]);
                 temp.transform.position = spawnPosB.transform.position;
             }
@@ -151,97 +176,10 @@ public class gameController : MonoBehaviour
     }
 
 
-
-
-
-
-
-
-
-
-
-    /*    
-    IEnumerator SpawnInimigo()
+    public void RestartScene()
     {
-        yield return new WaitForSeconds(2);
-
-        if (startOrda == false)
-        {
-            startOrda = true;
-            qtdOrdaAtual = Random.Range(1, 10);
-        }
-
-        positionSpanw = Random.Range(1, 3);
-        enemyType = Random.Range(0, 3);
-
-        print(" Inimigo do tipo: " + enemyType + " na posição: " + positionSpanw);        
-
-        yield return new WaitForSeconds(3);
-
-        while (qtdOrdaAtual > 0)
-        {
-            if (positionSpanw == 1)
-            {
-                if (slotAIsBusy == false)
-                {
-                    GameObject temp = Instantiate(inimigoPrefab[enemyType]);
-                    temp.transform.position = spawnPosA.transform.position;
-                    qtdInimigosTela += 1;
-                    qtdOrdaAtual -= 1;
-                }
-
-                else if (slotAIsBusy == true && slotBIsBusy == false)
-                {
-                    GameObject temp = Instantiate(inimigoPrefab[enemyType]);
-                    temp.transform.position = spawnPosB.transform.position;
-                    qtdOrdaAtual -= 1;
-                    qtdInimigosTela += 1;
-                }
-
-                else if (slotAIsBusy == true && slotBIsBusy == true)
-                {
-                    yield return new WaitUntil(() => slotAIsBusy == false);
-                    enemy.transform.position = spawnPosA.transform.position;
-                    qtdOrdaAtual -= 1;
-                    qtdInimigosTela += 1;
-                }
-
-            }
-            if (positionSpanw == 2)
-            {
-                if (slotBIsBusy == false)
-                {
-                    GameObject temp = Instantiate(inimigoPrefab[enemyType]);
-                    temp.transform.position = spawnPosB.transform.position;
-                    qtdOrdaAtual -= 1;
-                    qtdInimigosTela += 1;
-                }
-
-                else if (slotAIsBusy == false && slotBIsBusy == true)
-                {
-                    GameObject temp = Instantiate(inimigoPrefab[enemyType]);
-                    temp.transform.position = spawnPosA.transform.position;
-                    qtdOrdaAtual -= 1;
-                    qtdInimigosTela += 1;
-                }
-
-                else if (slotAIsBusy == true && slotBIsBusy == true)
-                {
-                    yield return new WaitUntil(() => slotBIsBusy == false);
-                    enemy.transform.position = spawnPosB.transform.position;
-                    qtdOrdaAtual -= 1;
-                    qtdInimigosTela += 1;
-                }
-            }
-
-        }
-
-        startOrda = false;
-
-    }*/
-
-
-
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 
 
 }

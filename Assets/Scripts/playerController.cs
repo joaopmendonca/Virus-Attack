@@ -18,6 +18,7 @@ public class playerController : MonoBehaviour
     public Rigidbody2D playerRb;
     public gameController _gameController;
     public Animator playerAnimator;
+    public AudioController _AudioController;
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +48,7 @@ public class playerController : MonoBehaviour
 
         //Ataque!
 
-        if (Input.GetButtonDown("Fire1") && isShooting == false)
+        if (Input.GetButtonDown("Fire1") && isShooting == false && _gameController.isGameOver == false)
         {
             if(_gameController.qtdTirosAtual > 0)
             {                
@@ -60,7 +61,7 @@ public class playerController : MonoBehaviour
 
         //Animações
 
-        if (Input.GetButton("Jump") && isGrounded == true)
+        if (Input.GetButton("Jump") && isGrounded == true && _gameController.isGameOver == false)
         {
             jump();
         }
@@ -82,7 +83,7 @@ public class playerController : MonoBehaviour
                 break;
 
             case 1:
-                //_AudioController.playSFX(_AudioController.sfxShoot, 1f);                
+                _AudioController.playSFX(_AudioController.sfxShoot, 1f);                
                 GameObject temp = Instantiate(tiroPrefab);
                 temp.transform.position = armaPosition.transform.position;                
                 isShooting = true;

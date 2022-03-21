@@ -131,6 +131,7 @@ MonoBehaviour:
   enemyRb: {fileID: 567667325564425773}
   enemySpriteRender: {fileID: 567667325564426706}
   _gameController: {fileID: 0}
+  enemyAnimator: {fileID: 567667325564426705}
 --- !u!50 &567667325564425773
 Rigidbody2D:
   serializedVersion: 4
@@ -162,7 +163,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.012252837, y: 0.007351458}

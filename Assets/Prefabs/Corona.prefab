@@ -132,6 +132,7 @@ MonoBehaviour:
   enemyRb: {fileID: 7088162804767135944}
   enemySpriteRender: {fileID: 7088162804767135959}
   _gameController: {fileID: 0}
+  enemyAnimator: {fileID: 7088162804767135956}
 --- !u!50 &7088162804767135944
 Rigidbody2D:
   serializedVersion: 4

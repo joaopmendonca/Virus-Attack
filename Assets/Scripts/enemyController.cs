@@ -12,7 +12,9 @@ public class enemyController : MonoBehaviour
     public int recompensa;
     public float positionX;
     bool isDamage;
-
+    public bool isDeath;
+    public float velocidadeMedia;
+    public float velocidadeAuta;
 
     public Color[] enemyColor;
     public bool isHit;
@@ -22,6 +24,8 @@ public class enemyController : MonoBehaviour
     public Rigidbody2D enemyRb;
     public SpriteRenderer enemySpriteRender;
     public gameController _gameController;
+    public Animator enemyAnimator;
+    private AudioController _AudioController;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +33,10 @@ public class enemyController : MonoBehaviour
         vidaAtual = vidaMax;
         velocidadeAtual = velocidadeMax;
         _gameController = FindObjectOfType(typeof(gameController)) as gameController;
+        _AudioController = FindObjectOfType(typeof(AudioController)) as AudioController;
+
+        velocidadeAuta = velocidadeMax + 1f;
+        velocidadeMedia = velocidadeMax + 0.5f;
     }
 
     // Update is called once per frame
@@ -37,16 +45,30 @@ public class enemyController : MonoBehaviour
         enemyRb.velocity = new Vector2(velocidadeAtual * -1, enemyRb.velocity.y);
         positionX = transform.position.x;
 
-        if (positionX < _gameController.limiteMinX)
+        if (positionX < _gameController.limiteMinX && isDeath == false)
         {
             
             if (isDamage == false)
-            {
+            {                
                 isDamage = true;
                 _gameController.vidaAtual -= 1;                
             }
 
         }
+
+        if (_gameController.Pontuacao > 1000 && _gameController.Pontuacao < 2000)
+        {
+            velocidadeMax = velocidadeMedia;
+            velocidadeAtual = velocidadeMax;
+        }
+
+        else if (_gameController.Pontuacao > 2000 && _gameController.Pontuacao < 3000)
+        {
+            velocidadeMax = velocidadeAuta;
+            velocidadeAtual = velocidadeMax;
+        }
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -66,9 +88,14 @@ public class enemyController : MonoBehaviour
 
         if (vidaAtual <= 0)
         {
-            _gameController.Pontuacao += recompensa;            
-            _gameController.qtdInimigosTela -= 1;            
-            Destroy(this.gameObject,0.1f);
+            if(isDeath == false)
+            {
+                isDeath = true;
+                _AudioController.playSFX(_AudioController.sfxEnemyDie, 1f);
+                isDeath = true;
+                enemyAnimator.SetTrigger("isDead");
+
+            }
         }
 
         else
@@ -85,7 +112,12 @@ public class enemyController : MonoBehaviour
 
     }
 
-
+    void DestroyMe()
+    {        
+        _gameController.Pontuacao += recompensa;
+        _gameController.qtdInimigosTela -= 1;
+        Destroy(this.gameObject);
+    }
 
 
 }

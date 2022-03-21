@@ -43,8 +43,7 @@ public class enemyController : MonoBehaviour
             if (isDamage == false)
             {
                 isDamage = true;
-                _gameController.vidaAtual -= 1;
-                print(_gameController.vidaAtual);
+                _gameController.vidaAtual -= 1;                
             }
 
         }
@@ -53,8 +52,7 @@ public class enemyController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("Shoot") && isHit == false)
-        {
-            print("inimigo atingido");
+        {           
             StartCoroutine("getHit");
         }
     }
@@ -68,9 +66,9 @@ public class enemyController : MonoBehaviour
 
         if (vidaAtual <= 0)
         {
-            _gameController.Pontuacao += recompensa;
-            _gameController.qtdInimigosTela -= 1;
-            Destroy(this.gameObject);
+            _gameController.Pontuacao += recompensa;            
+            _gameController.qtdInimigosTela -= 1;            
+            Destroy(this.gameObject,0.1f);
         }
 
         else
@@ -86,6 +84,8 @@ public class enemyController : MonoBehaviour
         enemySpriteRender.color = enemyColor[0];        
 
     }
+
+
 
 
 }

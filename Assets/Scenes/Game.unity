@@ -123,6 +123,54 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &3167469
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3167470}
+  - component: {fileID: 3167472}
+  m_Layer: 0
+  m_Name: A
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3167470
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3167469}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.926, y: 0.7101991, z: 691.2687}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 846573344}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3167472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3167469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 465ccd605f66c76468a352b094713e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isBusy: 0
+  isEnemy:
+    serializedVersion: 2
+    m_Bits: 128
+  Enemyslot: {fileID: 0}
 --- !u!1 &206809323
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +342,7 @@ Transform:
   - {fileID: 2098840884}
   - {fileID: 1434066435}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &272570034
 Rigidbody2D:
@@ -468,7 +516,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.50493425, y: -0.6681991, z: -0.05347781}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 3167470}
+  - {fileID: 1192199024}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -499,8 +549,67 @@ MonoBehaviour:
   velocidadeObjeto: -2
   inimigoPrefab:
   - {fileID: 7088162804767135957, guid: 0a225e868e8edfe41bdf7e62292dec8c, type: 3}
+  - {fileID: 2581693030154776599, guid: 97e12dbbb7e3c6046a66c64ed73290e0, type: 3}
+  - {fileID: 567667325564426711, guid: a43439c538526764fb5024eaf76c656e, type: 3}
+  qtdOrdaAtual: 0
+  spawnPosA: {fileID: 3167470}
+  spawnPosB: {fileID: 1192199024}
+  isEnemy:
+    serializedVersion: 2
+    m_Bits: 128
+  slotAIsBusy: 0
+  slotBIsBusy: 0
   qtdInimigosTela: 0
   _playerController: {fileID: 272570035}
+  _enemyController: {fileID: 7088162804767135945, guid: 0a225e868e8edfe41bdf7e62292dec8c, type: 3}
+--- !u!1 &1192199023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1192199024}
+  - component: {fileID: 1192199026}
+  m_Layer: 0
+  m_Name: B
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1192199024
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192199023}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.926, y: -0.042800903, z: 691.2687}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 846573344}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1192199026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192199023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 465ccd605f66c76468a352b094713e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isBusy: 0
+  isEnemy:
+    serializedVersion: 2
+    m_Bits: 128
+  Enemyslot: {fileID: 0}
 --- !u!1 &1317177324
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,7 +1086,7 @@ PrefabInstance:
       objectReference: {fileID: 846573345}
     - target: {fileID: 7109932120659718958, guid: 70e93c60f986e9649b2f14b8975611d3, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7109932120659718958, guid: 70e93c60f986e9649b2f14b8975611d3, type: 3}
       propertyPath: m_LocalPosition.x

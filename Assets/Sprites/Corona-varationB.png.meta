@@ -102,6 +102,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -748,6 +749,33 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Corona-varationB_18: -1807811970920410416
+      Corona-varationB_22: -7563603800219140464
+      Corona-varationB_8: -9097066026965511675
+      Corona-varationB_15: -7474766528467299081
+      Corona-varationB_25: 4658516667466303795
+      Corona-varationB_14: -379460203820389811
+      Corona-varationB_6: -6710353338127864993
+      Corona-varationB_1: -7621666108782657428
+      Corona-varationB_10: -2643448777090760175
+      Corona-varationB_20: 4452716939128411197
+      Corona-varationB_2: -9130972744616664921
+      Corona-varationB_17: 2223747035685215969
+      Corona-varationB_4: -3966837475154554700
+      Corona-varationB_3: 2194903392108093360
+      Corona-varationB_21: 3255422393615721642
+      Corona-varationB_12: -5720205607073171706
+      Corona-varationB_5: 6968778552974807848
+      Corona-varationB_7: -3326286347324707630
+      Corona-varationB_16: 5419615197966007878
+      Corona-varationB_13: -5420940730492423320
+      Corona-varationB_24: 2030869388650983363
+      Corona-varationB_19: -2908463930010512990
+      Corona-varationB_23: 1071524133958677252
+      Corona-varationB_9: 6638811497497098684
+      Corona-varationB_11: -2482223974538473616
+      Corona-varationB_0: 8001057244349559103
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

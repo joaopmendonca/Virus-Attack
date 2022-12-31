@@ -102,6 +102,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -748,6 +749,33 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Coronga_Animations_12: 8780600544496867535
+      Walk-6: 4938101543271433700
+      Coronga_Animations_19: 8151284135141218649
+      Walk-1: 5375484124287217459
+      Coronga_Animations_15: -5558502642836445002
+      Coronga_Animations_18: -4439200095545055828
+      Coronga_Animations_14: -2502715020929221143
+      Coronga_Animations_16: -3697234385341701459
+      Coronga_Animations_7: -6608290552802375992
+      Coronga_Animations_22: 7918682553454481006
+      Walk-3: -8361983348811353934
+      Coronga_Animations_10: -8387577303090832946
+      Walk-2: -86648205319979774
+      Coronga_Animations_20: -8670698571407873539
+      Walk-5: -507157912004572568
+      Coronga_Animations_6: 7745771383040124538
+      Walk-4: 572054550354843741
+      Coronga_Animations_13: 9211469691799058256
+      Coronga_Animations_17: 2735812494387757457
+      Coronga_Animations_11: 5060690394749844000
+      Coronga_Animations_21: -1928590253356037903
+      Coronga_Animations_8: 6340973955613904801
+      Coronga_Animations_25: -5197764670254377953
+      Coronga_Animations_24: -1619135013223664499
+      Coronga_Animations_23: 4880552048031052659
+      Coronga_Animations_9: 8131077727177675712
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
